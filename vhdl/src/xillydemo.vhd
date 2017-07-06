@@ -15,11 +15,11 @@ entity xillydemo is
     otg_oc : IN std_logic;
     PS_GPIO : INOUT std_logic_vector(55 DOWNTO 0);
     GPIO_LED : OUT std_logic_vector(3 DOWNTO 0);
-    --vga4_blue : OUT std_logic_vector(4 DOWNTO 0);
-    --vga4_green : OUT std_logic_vector(5 DOWNTO 0);
-    --vga4_red : OUT std_logic_vector(4 DOWNTO 0);
-    --vga_hsync : OUT std_logic;
-    --vga_vsync : OUT std_logic;
+    vga4_blue : OUT std_logic_vector(4 DOWNTO 0);
+    vga4_green : OUT std_logic_vector(5 DOWNTO 0);
+    vga4_red : OUT std_logic_vector(4 DOWNTO 0);
+    vga_hsync : OUT std_logic;
+    vga_vsync : OUT std_logic;
     audio_mclk : OUT std_logic;
     audio_dac : OUT std_logic;
     audio_adc : IN std_logic;
@@ -420,11 +420,11 @@ begin
       GPIO_LED => GPIO_LED,
       bus_clk => bus_clk,
       quiesce => quiesce,
-      --vga4_blue => vga4_blue,
-      --vga4_green => vga4_green,
-      --vga4_red => vga4_red,
-      --vga_hsync => vga_hsync,
-      --vga_vsync => vga_vsync,
+      vga4_blue => vga4_blue,
+      vga4_green => vga4_green,
+      vga4_red => vga4_red,
+      vga_hsync => vga_hsync,
+      vga_vsync => vga_vsync,
       hdmi_clk_p => hdmi_clk_p,
       hdmi_clk_n => hdmi_clk_n,
       hdmi_d_p => hdmi_d_p,
