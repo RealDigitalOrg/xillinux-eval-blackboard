@@ -18,7 +18,7 @@ set_output_delay 5.5 [get_ports {vga*}]
 # the OSERDES' clock directly
 
 set_property LOC MMCME2_ADV_X1Y2 [get_cells -match_style ucf */vga_clk_ins/vga_mmcm]
-#set_property LOC PLLE2_ADV_X0Y0 [get_cells -match_style ucf *audio*/plle2_adv_inst]
+set_property LOC PLLE2_ADV_X1Y1 [get_cells -match_style ucf *audio*/plle2_adv_inst]
 
 set_property -dict "PACKAGE_PIN K17 IOSTANDARD LVCMOS33" [get_ports "clk_100"]
 set_property -dict "PACKAGE_PIN L20 IOSTANDARD LVCMOS33" [get_ports "GPIO_LED[0]"]
