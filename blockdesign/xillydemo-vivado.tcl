@@ -58,18 +58,18 @@ upgrade_ip [get_ips]
 # crossbar when vivado_system.bd is loaded. So AXI4-Lite slaves are
 # connected with the Tcl commands below.
 
-open_bd_design $origin_dir/vivado_system/vivado_system.bd
-startgroup
-apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins blockdesign/S_AXI]
-apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins xillyvga_0/S_AXI]
-apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins xillybus_lite_0/S_AXI]
-set_property range 4K [get_bd_addr_segs "processing_system7_0/Data/SEG_${coreblock}*"]
-set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_xillyvga_0_reg0}]
-set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_xillybus_lite_0_reg0}]
-set_property offset 0x50000000 [get_bd_addr_segs "processing_system7_0/Data/SEG_${coreblock}*"]
-set_property offset 0x50001000 [get_bd_addr_segs {processing_system7_0/Data/SEG_xillyvga_0_reg0}]
-set_property offset 0x50002000 [get_bd_addr_segs {processing_system7_0/Data/SEG_xillybus_lite_0_reg0}]
-endgroup
+#open_bd_design $origin_dir/vivado_system/vivado_system.bd
+#startgroup
+#apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins blockdesign/S_AXI]
+#apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins xillyvga_0/S_AXI]
+#apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins xillybus_lite_0/S_AXI]
+#set_property range 4K [get_bd_addr_segs "processing_system7_0/Data/SEG_${coreblock}*"]
+#set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_xillyvga_0_reg0}]
+#set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_xillybus_lite_0_reg0}]
+#set_property offset 0x50000000 [get_bd_addr_segs "processing_system7_0/Data/SEG_${coreblock}*"]
+#set_property offset 0x50001000 [get_bd_addr_segs {processing_system7_0/Data/SEG_xillyvga_0_reg0}]
+#set_property offset 0x50002000 [get_bd_addr_segs {processing_system7_0/Data/SEG_xillybus_lite_0_reg0}]
+#endgroup
 
 # The clocking wizard can't be part of blockdesign.bd, because the VLNV
 # definition requires a specific version. So grab the VLNV from the list
@@ -77,7 +77,8 @@ endgroup
 
 startgroup
 
-create_bd_cell -type ip -vlnv [get_ipdefs *:clk_wiz:*] blockdesign/stream_clk_gen
+#upgrade already generates clk_wiz
+#create_bd_cell -type ip -vlnv [get_ipdefs *:clk_wiz:*] blockdesign/stream_clk_gen
 set_property -dict [list CONFIG.PRIM_IN_FREQ.VALUE_SRC USER] \
     [get_bd_cells blockdesign/stream_clk_gen]
 
@@ -86,12 +87,12 @@ set_property -dict [list \
 			CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100} ] \
     [get_bd_cells blockdesign/stream_clk_gen]
 
-connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/clk_in1] \
-    [get_bd_pins blockdesign/${coreblock}/bus_clk]
-connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/clk_out1] \
-    [get_bd_pins blockdesign/${coreblock}/ap_clk]
-connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/reset] \
-    [get_bd_pins blockdesign/${coreblock}/quiesce]
+#connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/clk_in1] \
+#    [get_bd_pins blockdesign/${coreblock}/bus_clk]
+#connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/clk_out1] \
+#    [get_bd_pins blockdesign/${coreblock}/ap_clk]
+#connect_bd_net [get_bd_pins blockdesign/stream_clk_gen/reset] \
+#    [get_bd_pins blockdesign/${coreblock}/quiesce]
 
 endgroup
 

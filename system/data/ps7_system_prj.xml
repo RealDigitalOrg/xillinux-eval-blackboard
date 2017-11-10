@@ -7,7 +7,7 @@ Zynq board definition file for the ZYBO Rev. B.
 This file can be imported into XPS or Vivado IP Integrator to configure the PS7 core 
 to work properly with the ZYBO's DDR3, microSD, UART, Ethernet, USB-OTG, and other 
 onboard peripherals.  </description>
-  <Projinfo Part="xc7z010clg400-2" DeviceSize="xc7z010" Package="clg400" Speed="-2" />
+  <Projinfo Part="xc7z020clg400-2" DeviceSize="xc7z020" Package="clg400" Speed="-2" />
   <set param="PCW::MIO::MIO[22]::SLEW" value="fast" />
   <set param="PCW::MIO::MIO[22]::IOTYPE" value="HSTL 1.8V" />
   <set param="PCW::MIO::MIO[23]::SLEW" value="fast" />
@@ -232,7 +232,7 @@ onboard peripherals.  </description>
   <set param="PCW::PRESET::BANK1::VOLTAGE" value="LVCMOS 1.8V" />
   <set param="PCW::PRESET::BANK0::VOLTAGE" value="LVCMOS 3.3V" />
   <set param="PCW::PRESET::FPGA::SPEED" value="-1" />
-  <set param="PCW::PRESET::FPGA::PARTNUMBER" value="xc7z010clg400-1" />
+  <set param="PCW::PRESET::FPGA::PARTNUMBER" value="xc7z020clg400-1" />
   <set param="PCW::MIO::MIO[46]::PULLUP" value="disabled" />
   <set param="PCW::MIO::MIO[46]::IOTYPE" value="LVCMOS 1.8V" />
   <set param="PCW::PJTAG::PERIPHERAL::ENABLE" value="0" />
