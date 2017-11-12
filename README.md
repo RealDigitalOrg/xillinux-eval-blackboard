@@ -182,6 +182,13 @@ To build new boot files for the SD card, use the following steps:
    "xillinux-1.3-blackboard.dts" file, use the following command:
    - "dtc -I dts -O dtb -o devicetree.dtb xillinux-1.3-blackboard.dts"
    You can then copy the updated device tree to partition one of the SD card.
+   The dtc program is pretty standard for Linux.  To build it on Blackboard,
+   you can use the following steps:
+   - Downlaod the file using "git clone https://github.com/dgibson/dtc.git"
+   - install bison and flex with "apt-get install bison flex"
+   - cd into the dtc directory and the type "make".
+   - To install dtc, type "make PREFIX=/usr install".  You will get an error
+     regarding pylibfdt if Python is not installed, but dtc will still work.
 3. To recompile u-boot, that is part of the BOOT.bin file, you will need
    to clone "u-boot-xlnx" from our git repository.  Once cloned on your
    local PC, you can use the following steps to build the u-boot elf file:
