@@ -18,8 +18,9 @@ blockdesign/vivado_system/system
 blockdesign/vivado_system/ui
 blockdesign/vivado_system/vivado_system.bxml
 blockdesign/vivado_system/vivado_system_ooc.xdc
-sw/SDK.log
 sw/.metadata
+sw/.sdk
 sw/RemoteSystemsTempFiles
+sw/SDK.log
 sw/xillydemo_hw_platform_0
 sw/standalone_bsp_0/ps7_cortexa9_0/lib
