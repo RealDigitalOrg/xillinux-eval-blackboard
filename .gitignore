@@ -1,2 +1,16 @@
 *.orig
 *~
+vivado-essentials/vga_fifo
+blockdesign/vivado/xillydemo.cache
+blockdesign/vivado/xillydemo.hw
+blockdesign/vivado/xillydemo.runs
+blockdesign/vivado/xillydemo.xpr
+blockdesign/vivado_system/hdl
+blockdesign/vivado_system/hw_handoff
+blockdesign/vivado_system/ip
+blockdesign/vivado_system/ipshared
+blockdesign/vivado_system/system
+blockdesign/vivado_system/ui
+blockdesign/vivado_system/vivado_system.bxml
+blockdesign/vivado_system/vivado_system_ooc.xdc
+
