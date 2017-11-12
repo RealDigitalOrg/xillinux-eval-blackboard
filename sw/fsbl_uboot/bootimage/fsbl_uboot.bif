@@ -1,0 +1,6 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]C:\Users\rphoover\Xilinx\xillinux-eval-blackboard\blockdesign\vivado\xillydemo.sdk\fsbl_uboot\Debug\fsbl_uboot.elf
+	C:\Users\rphoover\Xilinx\xillinux-eval-blackboard\blockdesign\vivado\xillydemo.sdk\fsbl_uboot\Debug\u-boot.elf
+}
