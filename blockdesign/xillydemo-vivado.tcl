@@ -8,7 +8,7 @@ send_msg_id xillydemo-1 error "The path to the the project directory contains wh
 
 set proj_name xillydemo
 set proj_dir "[file normalize $origin_dir/vivado]"
-set thepart "xc7z020clg400-1"
+set thepart "xc7z007sclg400-1"
 set coreblock xillybus_bundled_0
 
 # Set the directory for essentials for Vivado

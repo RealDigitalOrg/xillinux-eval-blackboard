@@ -1,28 +1,18 @@
 module xillydemo
   (
   input  clk_100,
-  input  otg_oc,   
-  inout [55:0] PS_GPIO,
+  inout [41:0] PS_GPIO,
   output [3:0] GPIO_LED,
-  output [4:0] vga4_blue,
-  output [5:0] vga4_green,
-  output [4:0] vga4_red,
+  output [3:0] vga4_blue,
+  output [3:0] vga4_green,
+  output [3:0] vga4_red,
   output  vga_hsync,
   output  vga_vsync,
-  output  audio_mclk,
-  output  audio_dac,
-  input  audio_adc,
-  input  audio_bclk,
-  input  audio_adc_lrclk,
-  input  audio_dac_lrclk,
-  output  audio_mute,
   output  hdmi_clk_p,
   output  hdmi_clk_n,
   output [2:0] hdmi_d_p,
   output [2:0] hdmi_d_n,
-  output  hdmi_out_en,
-  inout  smb_sclk,
-  inout  smb_sdata   
+  output  hdmi_out_en
   ); 
 
    wire       ap_clk;
@@ -36,6 +26,17 @@ module xillydemo
    reg [7:0] litearray1[0:31];
    reg [7:0] litearray2[0:31];
    reg [7:0] litearray3[0:31];
+
+   // Dummy wires for audio
+   wire  audio_adc;
+   wire  audio_bclk;
+   wire  audio_adc_lrclk;
+   wire  audio_dac_lrclk;
+   wire  smb_sclk;
+   wire  smb_sdata;
+
+   // Other dummy wires
+   wire  otg_oc;
 
    // Wires related to /dev/xillybus_audio
    wire [31:0] from_host_audio_tdata;
@@ -74,28 +75,35 @@ module xillydemo
    wire        vga_vsync_w;
    wire        vga_clk;
 
-   wire [55:0] gpio_tri_i, gpio_tri_o, gpio_tri_t;
+   wire [41:0] gpio_tri_i, gpio_tri_o, gpio_tri_t;
    genvar      i;
 
    generate
-      for (i=0; i<56; i=i+1)
+      for (i=0; i<42; i=i+1)
 	begin: gpio
 	   assign gpio_tri_i[i] = PS_GPIO[i];
 	   assign PS_GPIO[i] = gpio_tri_t[i] ? 1'bz : gpio_tri_o[i];
 	end
    endgenerate
 
+   assign otg_oc = 1;
    assign USB0_VBUS_PWRFAULT = !otg_oc;
    assign hdmi_out_en = 1;
 
+   // Assign dummy wires
+   assign  audio_adc = 1;
+   assign  audio_bclk = 1;
+   assign  audio_adc_lrclk = 1;
+   assign  audio_dac_lrclk = 1;
+ 
    // synthesis attribute IOB of vga_iob_ff is "TRUE"
 
-   FDCE vga_iob_ff [17:0]
+   FDCE vga_iob_ff [13:0]
      (
       .Q( { vga4_red, vga4_green, vga4_blue, vga_hsync, vga_vsync} ),
-      .D( { xillyvga_0_vga_red[7:3],
-	    xillyvga_0_vga_green[7:2],
-	    xillyvga_0_vga_blue[7:3],
+      .D( { xillyvga_0_vga_red[7:4],
+	    xillyvga_0_vga_green[7:4],
+	    xillyvga_0_vga_blue[7:4],
 	    vga_hsync_w, vga_vsync_w } ),
       .C(vga_clk), .CE(1'b1), .CLR(1'b0)
       );
