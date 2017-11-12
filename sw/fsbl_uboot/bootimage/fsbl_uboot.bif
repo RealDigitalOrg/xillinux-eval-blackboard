@@ -1,6 +1,6 @@
 //arch = zynq; split = false; format = BIN
 the_ROM_image:
 {
-	[bootloader]C:\Users\rphoover\Xilinx\xillinux-eval-blackboard\sw\fsbl_uboot\Debug\fsbl_uboot.elf
-	C:\Users\rphoover\Xilinx\xillinux-eval-blackboard\sw\fsbl_uboot\Debug\u-boot.elf
+	[bootloader]..\Debug\fsbl_uboot.elf
+	..\Debug\u-boot.elf
 }
