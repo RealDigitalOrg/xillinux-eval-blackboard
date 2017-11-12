@@ -16,7 +16,6 @@ set_output_delay 5.5 [get_ports {vga*}]
 # The VGA core's MMCM must be close to the HDMI I/O's pins, because it drives
 # the OSERDES' clock directly
 
-#set_property LOC MMCME2_ADV_X1Y2 [get_cells -match_style ucf */vga_clk_ins/vga_mmcm]  FIXME!
 set_property LOC MMCME2_ADV_X0Y0 [get_cells -match_style ucf */vga_clk_ins/vga_mmcm]
 #set_property LOC PLLE2_ADV_X1Y1 [get_cells -match_style ucf *audio*/plle2_adv_inst]
 
