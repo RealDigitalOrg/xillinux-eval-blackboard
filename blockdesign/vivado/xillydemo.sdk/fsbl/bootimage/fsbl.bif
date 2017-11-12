@@ -1,5 +1,0 @@
-the_ROM_image:
-{
-	[bootloader]C:\Users\rphoover\Xilinx\xillinux-eval-navyzybo-2.0a\blockdesign\vivado\xillydemo.sdk\fsbl\Debug\fsbl.elf
-	C:\Users\rphoover\Xilinx\xillinux-eval-zybo-2.0a\blockdesign\vivado\xillydemo.sdk\fsbl\u-boot.elf
-}
