@@ -58,7 +58,7 @@ upgrade_ip [get_ips]
 # crossbar when vivado_system.bd is loaded. So AXI4-Lite slaves are
 # connected with the Tcl commands below.
 
-#open_bd_design $origin_dir/vivado_system/vivado_system.bd
+open_bd_design $origin_dir/vivado_system/vivado_system.bd
 #startgroup
 #apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins blockdesign/S_AXI]
 #apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins xillyvga_0/S_AXI]
