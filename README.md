@@ -192,6 +192,10 @@ To build new boot files for the SD card, use the following steps:
 3. To recompile u-boot, that is part of the BOOT.bin file, you will need
    to clone "u-boot-xlnx" from our git repository.  Once cloned on your
    local PC, you can use the following steps to build the u-boot elf file:
+   - "git pull origin blackboard" to pull in the blackboard branch.
+   - "git checkout -b blackboard" to check out the blackboard branch.
+   - "apt-get install libfdt-dev" to install libfdt development libraries.
+   - "apt-get install libssl-dev" to install libssl development libraries.
    - "make zynq_blackboard_defconfig"
    - "make"
    The second step will take a while to complete.  Once build, you can copy
