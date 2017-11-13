@@ -1,7 +1,8 @@
-# clk_100 is correct for Blackboard and is 100 MHz
+# clk_100 is correct for Blackboard and is 100 MHz.  However, we
+# need 125 MHz and generate that from the ps7 block.
 
-create_clock -name gclk -period 10 [get_ports "clk_100"]
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets "clk_100"]
+#create_clock -name gclk -period 10 [get_ports "clk_100"]
+#set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets "clk_100"]
 
 # Vivado constraints unrelated clocks. So set false paths.
 set_false_path -from [get_clocks clk_fpga_1] -to [get_clocks vga_clk_ins/*]
@@ -19,7 +20,7 @@ set_output_delay 5.5 [get_ports {vga*}]
 set_property LOC MMCME2_ADV_X0Y0 [get_cells -match_style ucf */vga_clk_ins/vga_mmcm]
 #set_property LOC PLLE2_ADV_X1Y1 [get_cells -match_style ucf *audio*/plle2_adv_inst]
 
-set_property -dict "PACKAGE_PIN H16 IOSTANDARD LVCMOS33" [get_ports "clk_100"]
+#set_property -dict "PACKAGE_PIN H16 IOSTANDARD LVCMOS33" [get_ports "clk_100"]
 set_property -dict "PACKAGE_PIN N20 IOSTANDARD LVCMOS33" [get_ports "GPIO_LED[0]"]
 set_property -dict "PACKAGE_PIN P20 IOSTANDARD LVCMOS33" [get_ports "GPIO_LED[1]"]
 set_property -dict "PACKAGE_PIN R19 IOSTANDARD LVCMOS33" [get_ports "GPIO_LED[2]"]
