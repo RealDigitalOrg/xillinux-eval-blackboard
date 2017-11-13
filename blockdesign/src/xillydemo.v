@@ -154,7 +154,7 @@ module xillydemo
       .user_wren(user_wren),
       .user_wstrb(user_wstrb),
 
-      .clk_in(clk_100),
+      //.clk_in(clk_100),
       .dvi_clk_n(hdmi_clk_n),
       .dvi_clk_p(hdmi_clk_p),
       .dvi_d_n(hdmi_d_n),
