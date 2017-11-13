@@ -88,6 +88,23 @@
 			interrupts = <0 20 4>;
 			reg = <0xe000a000 0x1000>;
 		} ;
+		ps7_i2c_1: ps7-i2c@e0005000 {
+			bus-id = <1>;
+			clocks = <&clkc 39>;
+			compatible = "xlnx,ps7-i2c-1.00.a";
+			i2c-clk = <400000>;
+			interrupt-parent = <&ps7_scugic_0>;
+			interrupts = <0 48 4>;
+			reg = <0xe0005000 0x1000>;
+			xlnx,has-interrupt = <0x0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			m24c02_eeprom@52 {
+				compatible = "at,24c02";
+				reg = <0x52>;
+			};
+
+		} ;
 		ps7_iop_bus_config_0: ps7-iop-bus-config@e0200000 {
 			compatible = "xlnx,ps7-iop-bus-config-1.00.a";
 			reg = <0xe0200000 0x1000>;
