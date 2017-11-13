@@ -125,6 +125,7 @@ Using Linux on Blackboard
    resize the partition.  Once complete, the ext4 partition should be over
    7 GBytes in size.
 2. Update the /etc/fstab file to include the following lines:
+```
 # configured fstab for Blackboard
 /dev/root       /               auto    defaults                1 1
 none            /proc           proc    rw,noexec,nosuid,nodev  0 0
@@ -133,6 +134,7 @@ devtmpfs        /dev            devtmpfs rw,mode=0755           0 0
 devpts          /dev/pts        devpts  rw,noexec,nosuid,gid=5,mode=0620 0 0
 /dev/mmcblk0p1  /mnt/boot       vfat    noauto                  0 0
 /swapfile       none            swap    sw                      0 0
+```
 3. A swap file can be created that should provide a more stable Linux system
    when using a large number of programs or the X11 GUI.  To create a swap
    file use the following steps:
